@@ -1,12 +1,11 @@
-import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { routes } from "@/config/routes";
-import { IProductsData } from "@/config/types";
+import { TProductData } from "@/config/types";
 import Image from "next/image";
 import Link from "next/link";
 import PriceTag from "./price-tag";
 
-const ProductCard = ({ product }: { product: IProductsData }) => {
+const ProductCard = ({ product }: { product: TProductData }) => {
   const { slug, name, images, brand, rating, price, stock } = product;
 
   return (
@@ -30,7 +29,11 @@ const ProductCard = ({ product }: { product: IProductsData }) => {
         <div className="mt-4 flex min-h-7.5 items-center justify-between gap-4">
           <p>{rating} Stars</p>
           {stock > 0 ? (
-            <PriceTag price={price} />
+            typeof price === "number" ? (
+              <PriceTag price={price} />
+            ) : (
+              <span>{price}</span>
+            )
           ) : (
             <p className="text-destructive">Out of stock!</p>
           )}

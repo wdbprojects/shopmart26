@@ -1,10 +1,10 @@
 "use client";
 
+import { IProductsData } from "@/config/types";
 import ProductList from "../products/product-list";
-import { IProdutsData } from "@/config/types";
 
-const AllProducts = ({ products }: { products: IProdutsData[] }) => {
-  return <ProductList products={products} title="Featured Products" />;
+const AllProducts = ({ products }: { products: IProductsData[] }) => {
+  return <ProductList products={products} title="Browse Our Catalog" />;
 };
 
 export default AllProducts;

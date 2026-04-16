@@ -1,11 +1,13 @@
+import { z } from "better-auth";
 import { ReactNode } from "react";
+import { insertProductsSchema } from "./schemas";
 
 export type LayoutPropsMain = {
   children: ReactNode;
 };
 
 export interface IProductsData {
-  id: number;
+  // id: string;
   name: string;
   slug: string;
   category: string;
@@ -19,3 +21,11 @@ export interface IProductsData {
   isFeatured: boolean;
   banner?: string | null;
 }
+
+/* IMPORTING TYPES FROM */
+
+export type TProductData = z.infer<typeof insertProductsSchema> & {
+  id: string;
+  rating: number;
+  createdAt: Date;
+};

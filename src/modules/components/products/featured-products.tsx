@@ -1,12 +1,16 @@
 "use client";
 
+import { TProductData } from "@/config/types";
 import ProductList from "../products/product-list";
-import { IProdutsData } from "@/config/types";
 
-const FeaturedProducts = ({ products }: { products: IProdutsData[] }) => {
-  return (
-    <ProductList products={products} title="Featured Products" limit={4} />
-  );
+const FeaturedProducts = ({
+  data,
+}: {
+  success: boolean | undefined;
+  message: string | undefined;
+  data: TProductData[] | undefined;
+}) => {
+  return <ProductList products={data || []} title="Featured Products" />;
 };
 
 export default FeaturedProducts;

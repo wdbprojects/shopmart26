@@ -7,7 +7,7 @@ import {
   EmptyTitle,
 } from "@/components/ui/empty";
 import { routes } from "@/config/routes";
-import { IProductsData } from "@/config/types";
+import { TProductData } from "@/config/types";
 import { Apple, ArrowUpRightIcon } from "lucide-react";
 import Link from "next/link";
 import ProductCard from "./product-card";
@@ -15,21 +15,17 @@ import ProductCard from "./product-card";
 const ProductList = ({
   products,
   title,
-  limit,
 }: {
-  products: IProductsData[];
+  products: TProductData[];
   title?: string;
-  limit?: number;
 }) => {
-  const limitedData = limit ? products.slice(0, limit) : products;
-
   return (
     <div className="my-10">
       <h2 className="mb-4 text-center text-2xl font-semibold">{title}</h2>
-      {limitedData.length > 0 ? (
+      {products.length > 0 ? (
         <div className="xs:grid-cols-2 3xl:grid-cols-6 grid w-full grid-cols-1 gap-4 p-4 sm:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5">
-          {limitedData.map((product: IProductsData) => {
-            return <ProductCard product={product} key={product.id} />;
+          {products.map((product: TProductData) => {
+            return <ProductCard product={product} key={product.slug} />;
           })}
         </div>
       ) : (

@@ -1,0 +1,1 @@
+export const LATEST_PRODUCTS_LIMIT = process.env.LATEST_PRODUCTS_LIMIT;
