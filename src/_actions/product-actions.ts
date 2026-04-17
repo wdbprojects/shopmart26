@@ -43,7 +43,7 @@ export const findAllProductsAction = async () => {
     return {
       success: true,
       message: "Successfully fetched all products",
-      data: products,
+      data: convertToPlainObject(products),
     };
   } catch (error) {
     console.log(error);

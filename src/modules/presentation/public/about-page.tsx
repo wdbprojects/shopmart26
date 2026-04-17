@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { routes } from "@/config/routes";
+import SeedData from "@/modules/components/misc/seed-data";
 import { TestingSelect } from "@/modules/components/public/testing-select";
 
 import Link from "next/link";
@@ -16,6 +17,10 @@ const AboutPage = () => {
         <Link href={routes.dashboard}>Dashboard</Link>
       </Button>
       <TestingSelect />
+      <hr className="my-4" />
+      <div className="">
+        <SeedData />
+      </div>
     </div>
   );
 };

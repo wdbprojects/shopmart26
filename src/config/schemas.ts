@@ -7,7 +7,7 @@ const currency = z
   .string()
   .refine(
     (value) => /^\d+(\.\d{2})?$/.test(formatNumberWithDecimal(Number(value))),
-    { message: "Price must have twi decimal places" },
+    { message: "Price must have two decimal places" },
   );
 export const insertProductsSchema = z.object({
   name: z
@@ -27,7 +27,7 @@ export const insertProductsSchema = z.object({
   images: z
     .array(z.string())
     .min(1, { message: "Products must have at least one image" }),
-  isFeatured: z.string().nullable(),
+  isFeatured: z.string(),
   banner: z.string().nullable(),
   price: currency,
 });

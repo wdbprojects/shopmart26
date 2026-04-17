@@ -1,9 +1,9 @@
 "use client";
 
-import { IProductsData } from "@/config/types";
+import { TProductData } from "@/config/types";
 import ProductList from "../products/product-list";
 
-const AllProducts = ({ products }: { products: IProductsData[] }) => {
+const AllProducts = ({ products }: { products: TProductData[] }) => {
   return <ProductList products={products} title="Browse Our Catalog" />;
 };
 

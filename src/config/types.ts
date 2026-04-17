@@ -26,6 +26,6 @@ export interface IProductsData {
 
 export type TProductData = z.infer<typeof insertProductsSchema> & {
   id: string;
-  rating: number;
+  rating: string;
   createdAt: Date;
 };
