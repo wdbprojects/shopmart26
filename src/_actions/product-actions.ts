@@ -1,11 +1,11 @@
 "use server";
 
-import { IProductsData } from "@/config/types";
+import { TProductData } from "@/config/types";
 import { LATEST_PRODUCTS_LIMIT } from "@/lib/constants";
 import prisma from "@/lib/prisma";
 import { convertToPlainObject } from "@/lib/utils";
 
-export const seedProductsAction = async (data: IProductsData) => {
+export const seedProductsAction = async (data: TProductData) => {
   try {
     await prisma.product.deleteMany();
     const seededProducts = await prisma.product.createMany({ data });
@@ -37,7 +37,7 @@ export const getLatestProductsAction = async () => {
 };
 
 /* GET ALL PRODUCTS */
-export const findAllProductsAction = async () => {
+export const getAllProductsAction = async () => {
   try {
     const products = await prisma.product.findMany();
     return {

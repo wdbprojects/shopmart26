@@ -8,7 +8,7 @@ const FeaturedProducts = ({
 }: {
   success: boolean | undefined;
   message: string | undefined;
-  data: TProductData[] | undefined;
+  data: TProductData[];
 }) => {
   return <ProductList products={data || []} title="Featured Products" />;
 };

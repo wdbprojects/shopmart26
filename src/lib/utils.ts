@@ -11,7 +11,12 @@ export const convertToPlainObject = <T>(value: T): T => {
 };
 
 // FORMAT NUMBER WITH DECIMAL PLACES
-export const formatNumberWithDecimal = (num: number): string => {
+// export const formatNumberWithDecimal = (num: number): string => {
+//   const [int, decimal] = num.toString().split(".");
+//   return decimal ? `${int}.${decimal.padEnd(2, "0")}` : `${int}.00`;
+// };
+
+export function formatNumberWithDecimal(num: number): string {
   const [int, decimal] = num.toString().split(".");
   return decimal ? `${int}.${decimal.padEnd(2, "0")}` : `${int}.00`;
-};
+}
