@@ -29,5 +29,10 @@ export const insertProductsSchema = z.object({
     .min(1, { message: "Products must have at least one image" }),
   isFeatured: z.boolean(),
   banner: z.string().nullable(),
-  price: currency,
+  price: z
+    .string()
+    .refine(
+      (value) => /^\d+(\.\d{2})?$/.test(formatNumberWithDecimal(Number(value))),
+      { message: "Price must have two decimal places" },
+    ),
 });

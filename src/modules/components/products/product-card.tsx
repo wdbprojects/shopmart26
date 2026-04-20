@@ -7,6 +7,7 @@ import PriceTag from "./price-tag";
 
 const ProductCard = ({ product }: { product: TProductData }) => {
   const { slug, name, images, brand, rating, price, stock } = product;
+  const newPrice = Number(price);
 
   return (
     <Card className="w-full max-w-sm gap-0 space-y-0 p-0">
@@ -29,8 +30,8 @@ const ProductCard = ({ product }: { product: TProductData }) => {
         <div className="mt-4 flex min-h-7.5 items-center justify-between gap-4">
           <p>{rating} Stars</p>
           {stock > 0 ? (
-            typeof price === "number" ? (
-              <PriceTag price={price} />
+            typeof newPrice === "number" ? (
+              <PriceTag price={newPrice} />
             ) : (
               <span>{price}</span>
             )

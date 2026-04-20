@@ -12,8 +12,8 @@ const PriceTag = ({
   const [intValue, floatValue] = stringValue.split(".");
 
   return (
-    <p className={cn("text-2xl", className)}>
-      <span className="align-super text-sm font-semibold">$</span>{" "}
+    <p className={cn("flex flex-row text-2xl", className)}>
+      <span className="mr-1 align-super text-sm font-semibold">$</span>{" "}
       <span>{intValue}</span>.
       <span className="align-super text-sm">{floatValue}</span>
     </p>

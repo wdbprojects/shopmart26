@@ -51,11 +51,23 @@ export const getAllProductsAction = async () => {
   }
 };
 
-export const findProductById = async (id: string) => {
+export const getProductBySlug = async (slug: string) => {
   try {
     const product = await prisma.product.findFirst({
-      where: { id: id },
+      where: { slug: slug },
     });
+    if (product) {
+      return {
+        success: true,
+        message: "Successfully fetched product",
+        data: convertToPlainObject(product),
+      };
+    } else {
+      return {
+        success: false,
+        message: "Product not found",
+      };
+    }
   } catch (error) {
     console.log(error);
   }

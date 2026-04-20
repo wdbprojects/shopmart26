@@ -5,7 +5,9 @@ const SingleProductMain = async ({
 }: {
   params: Promise<{ slug: string }>;
 }) => {
-  return <SingleProduct params={params} />;
+  const { slug } = await params;
+
+  return <SingleProduct slug={slug} />;
 };
 
 export default SingleProductMain;
